@@ -5,25 +5,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build Application'
+                sh 'mvn -B -DskipTests clean install' 
             }
         }
-         stage('Test') {
-            steps {
-                echo 'Test Application'
-            }
-        }
-         stage('Deploy') {
-            steps {
-                echo 'Deploy Application'
-            }
-        }
+         
 	}
-        post {
-            always {
-                emailext body: 'Summary', subject: 'Pipeline status', to: 'yugamfu@gmail.com'
-            }
-            
-        }
+    
     }
 
