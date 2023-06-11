@@ -1,0 +1,8 @@
+The @PutMapping annotation has below optional attributes:
+consumes – Narrows the primary mapping by media types that can be consumed by the mapped handler.
+headers  – The headers of the mapped request, narrowing the primary mapping.
+name – Assign a name to this mapping.
+params – The parameters of the mapped request, narrowing the primary mapping.
+path – The primary mapping expressed by this annotation.
+produces – Narrows the primary mapping by media types that can be produced by the mapped handler.
+value – The primary mapping expressed by this annotation.
