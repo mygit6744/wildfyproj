@@ -1,11 +1,17 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage('Build') {
-            steps {
-               
-                git url: 'https://github.com/mygit6744/wildfyproj.git', branch: 'master'
-                sh 'mvn clean package'
+    tools{
+        maven 'MAVEN_HOME'
+    }
+    stages{
+        stage("SCM Checkout"){
+            steps{
+            git url: 'https://github.com/mygit6744/wildfyproj.git', branch: 'master'
+            }
+        }
+        stage("Maven Build"){
+            steps{
+                bat 'mvn clean package'
             }
         }
     }
