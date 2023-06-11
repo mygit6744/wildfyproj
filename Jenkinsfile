@@ -1,14 +1,11 @@
-node {
-	stage('SCM Checkout') {
-		git 'https://github.com/mygit6744/wildfyproj.git'
-		
-	}
-	
-	stage('Compile-Build-Deploy') {
-		def mvnHome = tool name:'MAVEN_HOME',type:'maven'
-		sh "${mvnHome}/bin/maven package"
-		
-	}
-	
-	
-}
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+               
+                git url: 'https://github.com/mygit6744.git', branch: 'master'
+                sh 'mvn clean package'
+            }
+        }
+    }
